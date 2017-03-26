@@ -19,8 +19,8 @@ private:
     HashFunctionsSet& m_functions;
     const DataSet& m_dataSet;
 
-    uint32_t Measure(std::function<uint32_t()> x);
-    uint32_t RunForDataSet(HashFunc func);
+    uint32_t Measure(std::function<void()> x);
+    void RunForDataSet(HashFunc func);
 };
 
 #endif /* HASHBENCHMARK_H_ */

@@ -3,6 +3,7 @@
 #include <hash/MurmurHash2.h>
 #include <hash/MurmurHash3.h>
 #include <hash/SuperFastHash.h>
+#include <hash/xxHash.h>
 #include <iostream>
 #include <string>
 
@@ -16,6 +17,7 @@ int main()
 {
     HashFunctionsSet hashFunctionsSet =
     {
+    { "XXH32", XXH32 },
     { "SuperFastHash", SuperFastHash },
     { "MurmurHash1", MurmurHash1 },
     { "MurmurHash1Aligned", MurmurHash1Aligned },

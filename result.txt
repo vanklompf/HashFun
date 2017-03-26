@@ -1,0 +1,15 @@
+1. Initial, Cygwin, 1000MB
+
+XXH32:	 227
+SuperFastHash:	 432
+MurmurHash1:	 442
+MurmurHash1Aligned:	 501
+MurmurHash2:	 318
+MurmurHash3_x86_32:	 396
+CityHash32:	 241
+
+
+
+No effect:
+ - OFast
+ - Whole program Optimizationy

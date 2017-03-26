@@ -1,10 +1,3 @@
-/*
- * SuperFastHash.h
- *
- *  Created on: Mar 5, 2017
- *      Author: fkorta
- */
-
 #ifndef SUPERFASTHASH_H_
 #define SUPERFASTHASH_H_
 

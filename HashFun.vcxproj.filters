@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="hash">
+      <UniqueIdentifier>{2ed966c0-3dc6-404c-a91b-5e0a98abe759}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{addc2f1f-e2f0-41ad-9537-1d265fe79c12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\hash">
+      <UniqueIdentifier>{065b1c3d-5106-4731-98d8-b4a3065eada7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="hash\CityHash.cpp">
+      <Filter>hash</Filter>
+    </ClCompile>
+    <ClCompile Include="hash\MurmurHash1.cpp">
+      <Filter>hash</Filter>
+    </ClCompile>
+    <ClCompile Include="hash\MurmurHash2.cpp">
+      <Filter>hash</Filter>
+    </ClCompile>
+    <ClCompile Include="hash\MurmurHash3.cpp">
+      <Filter>hash</Filter>
+    </ClCompile>
+    <ClCompile Include="hash\SuperFastHash.cpp">
+      <Filter>hash</Filter>
+    </ClCompile>
+    <ClCompile Include="hash\xxHash.cpp">
+      <Filter>hash</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="DataSet.cpp" />
+    <ClCompile Include="HashBenchmark.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\hash\CityHash.h">
+      <Filter>include\hash</Filter>
+    </ClInclude>
+    <ClInclude Include="include\hash\MurmurHash1.h">
+      <Filter>include\hash</Filter>
+    </ClInclude>
+    <ClInclude Include="include\hash\MurmurHash2.h">
+      <Filter>include\hash</Filter>
+    </ClInclude>
+    <ClInclude Include="include\hash\MurmurHash3.h">
+      <Filter>include\hash</Filter>
+    </ClInclude>
+    <ClInclude Include="include\hash\SuperFastHash.h">
+      <Filter>include\hash</Filter>
+    </ClInclude>
+    <ClInclude Include="include\hash\xxHash.h">
+      <Filter>include\hash</Filter>
+    </ClInclude>
+    <ClInclude Include="HashFunctionEntry.h" />
+    <ClInclude Include="DataSet.h" />
+    <ClInclude Include="HashBenchmark.h" />
+    <ClInclude Include="CompilerDefs.h" />
+  </ItemGroup>
+</Project>

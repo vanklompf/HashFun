@@ -27,11 +27,19 @@
 // possible hash functions, by using SIMD instructions, or by
 // compromising on hash quality.
 
-#include <byteswap.h>
+
 #include <stddef.h>
 #include "hash/CityHash.h"
 #include <algorithm>
 #include <cstring>
+
+#ifdef _MSC_VER
+#include <stdlib.h>
+#define bswap_32(x) _byteswap_ulong(x)
+#define bswap_64(x) _byteswap_uint64(x)
+#else
+#include <byteswap.h>
+#endif
 
 using namespace std;
 
@@ -94,7 +102,7 @@ static uint32 Hash32Len13to24(const uint8_t *s, size_t len) {
   uint32 d = Fetch32(s + (len >> 1));
   uint32 e = Fetch32(s);
   uint32 f = Fetch32(s + len - 4);
-  uint32 h = len;
+  uint32 h = (uint32_t)len;
 
   return fmix(Mur(f, Mur(e, Mur(d, Mur(c, Mur(b, Mur(a, h)))))));
 }
@@ -107,11 +115,11 @@ static uint32 Hash32Len0to4(const uint8_t *s, size_t len) {
     b = b * c1 + v;
     c ^= b;
   }
-  return fmix(Mur(b, Mur(len, c)));
+  return fmix(Mur(b, Mur((uint32_t)len, c)));
 }
 
 static uint32 Hash32Len5to12(const uint8_t *s, size_t len) {
-  uint32 a = len, b = len * 5, c = 9, d = b;
+  uint32 a = (uint32_t)len, b = (uint32_t)len * 5, c = 9, d = b;
   a += Fetch32(s);
   b += Fetch32(s + len - 4);
   c += Fetch32(s + ((len >> 1) & 4));
