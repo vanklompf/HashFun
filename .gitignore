@@ -79,3 +79,4 @@ $RECYCLE.BIN/
 *.lnk
 /x64
 /.vs/
+/Release/

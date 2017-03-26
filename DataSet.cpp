@@ -13,7 +13,6 @@ const size_t PAGE_SIZE = 1024*1024*2;
 DataSet::DataSet(size_t size) : m_size(size)
 {
     m_buffer = (uint8_t*)(ALLIGNED_ALLOC(PAGE_SIZE, m_size));
-    //m_buffer = (uint8_t*)malloc(m_size);
     m_packetLenghts.reserve(m_size / 512);
 }
 
@@ -36,5 +35,5 @@ void DataSet::PrepareData()
 
 DataSet::~DataSet()
 {
-    free(m_buffer);
+    ALLIGNED_FREE(m_buffer);
 }
