@@ -1,11 +1,6 @@
 language: cpp
 compiler: gcc
-
-before_install:
-  - sudo apt-get update
-
-install:
-  - sudo apt-get install cmake
+dist: trusty
 
 script: 
   - cmake . 
