@@ -183,6 +183,13 @@
     <ClInclude Include="include\hash\SuperFastHash.h" />
     <ClInclude Include="include\hash\xxHash.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include=".travis.yml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="CMakeLists.txt" />
+    <Text Include="result.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

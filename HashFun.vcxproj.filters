@@ -10,6 +10,9 @@
     <Filter Include="include\hash">
       <UniqueIdentifier>{065b1c3d-5106-4731-98d8-b4a3065eada7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="build">
+      <UniqueIdentifier>{941a20c1-8374-4e27-a1cf-6a012bd859a4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="hash\CityHash.cpp">
@@ -57,5 +60,16 @@
     <ClInclude Include="DataSet.h" />
     <ClInclude Include="HashBenchmark.h" />
     <ClInclude Include="CompilerDefs.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="result.txt" />
+    <Text Include="CMakeLists.txt">
+      <Filter>build</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".travis.yml">
+      <Filter>build</Filter>
+    </None>
   </ItemGroup>
 </Project>
