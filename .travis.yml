@@ -11,7 +11,7 @@ addons:
     - gcc-6
     - g++-6
     - cmake
-    - boost
+    - libboost-program-options-dev
 
 script:
   - export CXX=g++-6
