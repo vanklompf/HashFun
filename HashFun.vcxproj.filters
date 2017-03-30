@@ -73,5 +73,8 @@
     </None>
     <None Include="README.md" />
     <None Include="packages.config" />
+    <None Include="appveyor.yml">
+      <Filter>build</Filter>
+    </None>
   </ItemGroup>
 </Project>
