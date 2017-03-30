@@ -1,0 +1,12 @@
+# version format
+version: 1.0.{build}
+
+# Build worker image (VM template)
+image: Visual Studio 2017
+
+configuration:
+  - Debug
+  - Release
+
+build:
+  project: HashFun.sln      # path to Visual Studio solution or project
