@@ -78,11 +78,17 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-
-/x64
-/.vs/
-/Release/
-/CMakeFiles/
-/Makefile
+# Files
 /CmakeCache.txt
 /cmake_install.cmake
+
+#Folders
+/x64
+/Win32/
+/.vs/
+/Release/
+/Debug/
+/CMakeFiles/
+/Makefile
+/Packages/
+

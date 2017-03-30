@@ -1,9 +1,11 @@
+#include <boost/program_options.hpp>
 #include <hash/CityHash.h>
 #include <hash/MurmurHash1.h>
 #include <hash/MurmurHash2.h>
 #include <hash/MurmurHash3.h>
 #include <hash/SuperFastHash.h>
 #include <hash/xxHash.h>
+#include <stddef.h>
 #include <iostream>
 #include <string>
 
@@ -11,10 +13,17 @@
 #include "HashBenchmark.h"
 #include "HashFunctionEntry.h"
 
+namespace po = boost::program_options;
 static const size_t MEGABYTE = 1024*1024;
 
 int main()
 {
+    po::options_description desc("Allowed options");
+    desc.add_options()
+        ("help", "produce help message")
+        ("compression", po::value<double>(), "set compression level");
+
+
     HashFunctionsSet hashFunctionsSet =
     {
     { "XXH32", XXH32 },

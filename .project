@@ -26,7 +26,7 @@
 	</natures>
 	<filteredResources>
 		<filter>
-			<id>1490644870783</id>
+			<id>1490727070004</id>
 			<name></name>
 			<type>6</type>
 			<matcher>
@@ -35,7 +35,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1490644870788</id>
+			<id>1490727070010</id>
 			<name></name>
 			<type>6</type>
 			<matcher>
@@ -44,7 +44,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1490644870793</id>
+			<id>1490727070015</id>
 			<name></name>
 			<type>10</type>
 			<matcher>
@@ -53,7 +53,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1490644870798</id>
+			<id>1490727070021</id>
 			<name></name>
 			<type>10</type>
 			<matcher>
@@ -62,7 +62,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1490644870803</id>
+			<id>1490727070026</id>
 			<name></name>
 			<type>6</type>
 			<matcher>
@@ -71,12 +71,30 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1490644870809</id>
+			<id>1490727070032</id>
 			<name></name>
 			<type>6</type>
 			<matcher>
 				<id>org.eclipse.ui.ide.multiFilter</id>
 				<arguments>1.0-name-matches-false-false-*.exe</arguments>
+			</matcher>
+		</filter>
+		<filter>
+			<id>1490727070038</id>
+			<name></name>
+			<type>6</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-name-matches-false-false-Makefile</arguments>
+			</matcher>
+		</filter>
+		<filter>
+			<id>1490727070043</id>
+			<name></name>
+			<type>10</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-name-matches-false-false-packages</arguments>
 			</matcher>
 		</filter>
 	</filteredResources>
