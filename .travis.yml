@@ -5,7 +5,6 @@ sudo: false
 env:
   - COMPILER=clang++-3.9
   - COMPILER=clang++-4.0
-  - COMPILER=g++-7
   - COMPILER=g++-6
   - COMPILER=g++-5
   - COMPILER=g++
@@ -17,15 +16,13 @@ addons:
     - llvm-toolchain-trusty-4.0
     - llvm-toolchain-trusty-3.9
     packages:
-    - gcc-7
-    - gcc-6
     - g++-6
-    - gcc-5
     - g++-5
     - cmake
     - clang-3.9
     - clang-4.0
     - libboost-program-options-dev
+    - binutils-gold
 
 script:
   - export CXX=$COMPILER
