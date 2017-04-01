@@ -12,13 +12,14 @@ addons:
   apt:
     sources:
     - ubuntu-toolchain-r-test
+    - boost-latest
     packages:
     - gcc-6
     - g++-6
     - gcc-5
     - g++-5
     - cmake
-    - clang-3.5
+    - clang-3.7
     - libboost-program-options-dev
 
 script:
