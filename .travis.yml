@@ -3,7 +3,8 @@ dist: trusty
 sudo: false
 
 env:
-  - COMPILER=clang++
+  - COMPILER=clang++-3.8
+  - COMPILER=g++-7
   - COMPILER=g++-6
   - COMPILER=g++-5
   - COMPILER=g++
@@ -12,15 +13,16 @@ addons:
   apt:
     sources:
     - ubuntu-toolchain-r-test
-    - boost-latest
     packages:
+    - gcc-7
     - gcc-6
     - g++-6
     - gcc-5
     - g++-5
     - cmake
-    - clang-3.7
+    - clang-3.8
     - libboost-program-options-dev
+    - binutils-gold
 
 script:
   - export CXX=$COMPILER
