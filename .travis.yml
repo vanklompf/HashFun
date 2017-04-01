@@ -13,6 +13,7 @@ addons:
   apt:
     sources:
     - ubuntu-toolchain-r-test
+    - boost-latest
     - llvm-toolchain-trusty-4.0
     - llvm-toolchain-trusty-3.9
     packages:
@@ -23,10 +24,10 @@ addons:
     - clang-4.0
     - libboost-program-options-dev
     - binutils-gold
+    - binutils-dev
 
 script:
   - export CXX=$COMPILER
-  - $CXX --version
   - cmake . && make
   - ./hashfun
 

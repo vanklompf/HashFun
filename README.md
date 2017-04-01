@@ -5,6 +5,7 @@
 # HashFun
 
 Comparison test for different hash alghoritms using different compilers and compilation options.
+Also checking different CI tooling like AppVeyor, Grafana, Travis etc.
 
 Alghoritms list:
 * [https://github.com/google/cityhash](CityHash)
