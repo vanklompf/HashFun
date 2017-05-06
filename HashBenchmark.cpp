@@ -40,5 +40,3 @@ void HashBenchmark::RunForDataSet(HashFunc func)
       pos+=packetSize;
   }
 }
-
-

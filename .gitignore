@@ -91,4 +91,5 @@ $RECYCLE.BIN/
 /CMakeFiles/
 /Makefile
 /Packages/
-
+/googletest*
+/Testing
