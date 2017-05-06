@@ -30,6 +30,7 @@ set(HASH_SOURCE_FILES
 
 set(SOURCE_FILES
   ${HASH_SOURCE_FILES}
+  CommandlineParser.cpp
   DataSet.cpp
   HashBenchmark.cpp
   main.cpp

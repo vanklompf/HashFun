@@ -1,4 +1,3 @@
-#include <boost/program_options.hpp>
 #include <hash/CityHash.h>
 #include <hash/MurmurHash1.h>
 #include <hash/MurmurHash2.h>
@@ -9,20 +8,23 @@
 #include <iostream>
 #include <string>
 
+#include "CommandlineParser.h"
 #include "DataSet.h"
 #include "HashBenchmark.h"
 #include "HashFunctionEntry.h"
 
-namespace po = boost::program_options;
+
 static const size_t MEGABYTE = 1024*1024;
 
-int main()
+int main(int argc, char** argv)
 {
-    po::options_description desc("Allowed options");
-    desc.add_options()
-        ("help", "produce help message")
-        ("compression", po::value<double>(), "set compression level");
+    CommandlineParser parser(argc, argv);
+    const auto options = parser.Parse();
 
+
+    std::cout << "Size was set to " << options.dataSize << std::endl;
+    std::cout << "Min was set to " << options.minPacketSize << std::endl;
+    std::cout << "Max was set to " << options.maxPacketSize << std::endl;
 
     HashFunctionsSet hashFunctionsSet =
     {
@@ -34,9 +36,7 @@ int main()
     { "MurmurHash3_x86_32", MurmurHash3_x86_32 },
     { "CityHash32", CityHash32 } };
 
-    const auto size = 1000;
-    std::cout << "Data size: " << size << " Mb" << std::endl;
-    DataSet dataSet(size * MEGABYTE);
+    DataSet dataSet(options.dataSize * MEGABYTE, options.minPacketSize, options.maxPacketSize);
     dataSet.PrepareData();
 
     HashBenchmark benchmark(hashFunctionsSet, dataSet);
