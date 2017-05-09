@@ -13,7 +13,7 @@ class HashBenchmark
 {
 public:
     HashBenchmark(HashFunctionsSet& functions, const DataSet& dataSet);
-    void Run();
+    void Run(size_t numOfRuns);
 
 private:
     HashFunctionsSet& m_functions;

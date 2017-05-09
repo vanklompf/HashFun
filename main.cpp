@@ -5,10 +5,14 @@
 #include <hash/SuperFastHash.h>
 #include <hash/xxHash.h>
 #include <stddef.h>
+#include <algorithm>
+#include <cstdint>
 #include <iostream>
 #include <string>
+#include <vector>
 
 #include "CommandlineParser.h"
+#include "CvsPrinter.h"
 #include "DataSet.h"
 #include "HashBenchmark.h"
 #include "HashFunctionEntry.h"
@@ -21,10 +25,13 @@ int main(int argc, char** argv)
     CommandlineParser parser(argc, argv);
     const auto options = parser.Parse();
 
-
-    std::cout << "Size was set to " << options.dataSize << std::endl;
-    std::cout << "Min was set to " << options.minPacketSize << std::endl;
-    std::cout << "Max was set to " << options.maxPacketSize << std::endl;
+    if (!options.cvsPrinter)
+    {
+        std::cout << "Size was set to " << options.dataSize << std::endl;
+        std::cout << "Num of runs was set to " << options.numOfRuns << std::endl;
+        std::cout << "Min was set to " << options.minPacketSize << std::endl;
+        std::cout << "Max was set to " << options.maxPacketSize << std::endl;
+    }
 
     HashFunctionsSet hashFunctionsSet =
     {
@@ -40,11 +47,24 @@ int main(int argc, char** argv)
     dataSet.PrepareData();
 
     HashBenchmark benchmark(hashFunctionsSet, dataSet);
-    benchmark.Run();
+    benchmark.Run(options.numOfRuns);
 
-    std::cout << "------------------------------------" << std::endl;
-    for (const auto& r : hashFunctionsSet)
+
+    if (options.cvsPrinter)
     {
-        std::cout << r.name << ":\t " << r.result << std::endl;
+        CvsPrinter printer(std::cout);
+        printer.PrintConfig(options);
+        printer.PrintResults(hashFunctionsSet);
+    }
+    else
+    {
+        std::cout << "------------------------------------" << std::endl;
+        for (const auto& hashFunction : hashFunctionsSet)
+        {
+            std::cout << hashFunction.name << ":";
+            std::for_each(hashFunction.results.begin(), hashFunction.results.end(),
+                    [](uint32_t result) {std::cout << "\t" << result;});
+            std:: cout << std::endl;
+        }
     }
 }

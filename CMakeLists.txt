@@ -13,6 +13,9 @@ endif()
 #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-exceptions -fno-rtti")
 set(CODE_CXX_FLAGS "${CODE_CXX_FLAGS} -O3")
 
+if (NOT (MSVS OR MSYS OR MINGW))
+  set(Boost_USE_STATIC_LIBS   ON)
+endif()
 find_package(Boost COMPONENTS program_options )
 if( NOT Boost_FOUND)
   message( FATAL_ERROR "Boost not found" )
@@ -31,6 +34,7 @@ set(HASH_SOURCE_FILES
 set(SOURCE_FILES
   ${HASH_SOURCE_FILES}
   CommandlineParser.cpp
+  CvsPrinter.cpp
   DataSet.cpp
   HashBenchmark.cpp
   main.cpp

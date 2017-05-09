@@ -6,6 +6,8 @@ struct CommandlineOptions
     size_t dataSize;
     size_t minPacketSize;
     size_t maxPacketSize;
+    size_t numOfRuns;
+    bool cvsPrinter;
 };
 
 class CommandlineParser

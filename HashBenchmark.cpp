@@ -21,12 +21,15 @@ uint32_t HashBenchmark::Measure(std::function<void()> f)
     return (uint32_t) std::chrono::duration_cast<std::chrono::milliseconds>(elapsed_seconds).count();
 }
 
-void HashBenchmark::Run()
+void HashBenchmark::Run(size_t numOfRuns)
 {
-  for(auto& f : m_functions)
-  {
-      f.result = Measure(std::bind(&HashBenchmark::RunForDataSet, this, f.func));
-  }
+    for (auto i = 0u; i < numOfRuns; ++i)
+    {
+        for (auto& f : m_functions)
+        {
+            f.results.push_back(Measure(std::bind(&HashBenchmark::RunForDataSet, this, f.func)));
+        }
+    }
 }
 
 

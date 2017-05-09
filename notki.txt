@@ -1,1 +1,12 @@
 _HAS_EXCEPTIONS=0;BOOST_NO_DEDUCED_TYPENAME=1;
+
+
+1. Google charts
+ - travis build ID
+ - commit message
+ - build type
+ - alg type
+ - time
+ 
+CREATE LOGIN travis WITH password='f!sdfjojfR#495dfgj4956';
+CREATE USER travisuser FROM LOGIN travis;
