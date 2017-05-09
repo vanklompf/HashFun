@@ -10,7 +10,7 @@
 
 const size_t PAGE_SIZE = 1024*1024*2;
 
-DataSet::DataSet(size_t size, size_t minPacketSize, size_t maxPacketSize)
+DataSet::DataSet(size_t size, uint32_t minPacketSize, uint32_t maxPacketSize)
 : m_size(size),
   m_minPacketSize(minPacketSize),
   m_maxPacketSize(maxPacketSize)

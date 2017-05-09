@@ -36,6 +36,8 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="DataSet.cpp" />
     <ClCompile Include="HashBenchmark.cpp" />
+    <ClCompile Include="CommandlineParser.cpp" />
+    <ClCompile Include="CvsPrinter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\hash\CityHash.h">
@@ -60,6 +62,8 @@
     <ClInclude Include="DataSet.h" />
     <ClInclude Include="HashBenchmark.h" />
     <ClInclude Include="CompilerDefs.h" />
+    <ClInclude Include="CommandlineParser.h" />
+    <ClInclude Include="CvsPrinter.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="result.txt" />

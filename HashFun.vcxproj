@@ -161,6 +161,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CommandlineParser.cpp" />
+    <ClCompile Include="CvsPrinter.cpp" />
     <ClCompile Include="DataSet.cpp" />
     <ClCompile Include="HashBenchmark.cpp" />
     <ClCompile Include="hash\CityHash.cpp" />
@@ -172,7 +174,9 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CommandlineParser.h" />
     <ClInclude Include="CompilerDefs.h" />
+    <ClInclude Include="CvsPrinter.h" />
     <ClInclude Include="DataSet.h" />
     <ClInclude Include="HashBenchmark.h" />
     <ClInclude Include="HashFunctionEntry.h" />

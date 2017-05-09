@@ -4,9 +4,9 @@
 struct CommandlineOptions
 {
     size_t dataSize;
-    size_t minPacketSize;
-    size_t maxPacketSize;
-    size_t numOfRuns;
+    uint32_t minPacketSize;
+    uint32_t maxPacketSize;
+    uint32_t numOfRuns;
     bool cvsPrinter;
 };
 

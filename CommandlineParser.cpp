@@ -22,10 +22,10 @@ CommandlineOptions CommandlineParser::Parse()
     desc.add_options()
         ("help", "produce help message")
         ("size,s", po::value<size_t>(&options.dataSize)->default_value(DEFAULT_DATA_SIZE), "data size in Megabytes (Mb)")
-        ("num,n", po::value<size_t>(&options.numOfRuns)->default_value(DEFAULT_NUM_OF_RUNS), "number of runs")
+        ("num,n", po::value<uint32_t>(&options.numOfRuns)->default_value(DEFAULT_NUM_OF_RUNS), "number of runs")
         ("cvs,c", "print in CVS format")
-        ("min-packet-size,i", po::value<size_t>(&options.minPacketSize)->default_value(DEFAULT_MIN_PACKET_SIZE), "minimal packet size")
-        ("max-packet-size,a", po::value<size_t>(&options.maxPacketSize)->default_value(DEFAULT_MAX_PACKET_SIZE), "minimal packet size");
+        ("min-packet-size,i", po::value<uint32_t>(&options.minPacketSize)->default_value(DEFAULT_MIN_PACKET_SIZE), "minimal packet size")
+        ("max-packet-size,a", po::value<uint32_t>(&options.maxPacketSize)->default_value(DEFAULT_MAX_PACKET_SIZE), "minimal packet size");
 
     po::variables_map vm;
     po::store(po::parse_command_line(m_argc, m_argv, desc), vm);

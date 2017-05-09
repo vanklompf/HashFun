@@ -34,13 +34,13 @@ void CvsPrinter::PrintResults(const HashFunctionsSet& results) const
 
 uint32_t CvsPrinter::CalculateAverage(const HashFunctionEntry& results)
 {
-    return std::accumulate(results.results.begin(), results.results.end(), 0) / results.results.size();
+    return std::accumulate(results.results.begin(), results.results.end(), 0) / (uint32_t)results.results.size();
 }
 
 uint32_t CvsPrinter::CalculateStdDev(const HashFunctionEntry& results, uint32_t average)
 {
     auto& r = results.results;
     auto sq_sum = std::inner_product(r.begin(), r.end(), r.begin(), 0);
-    return std::sqrt(sq_sum / r.size() - average * average);
+    return static_cast<uint32_t>(sqrt(sq_sum / r.size() - average * average));
 }
 

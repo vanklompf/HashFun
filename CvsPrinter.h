@@ -4,7 +4,7 @@
 #include "IPrinter.h"
 #include "HashFunctionEntry.h"
 
-class CommandlineOptions;
+struct CommandlineOptions;
 
 class CvsPrinter : IPrinter
 {

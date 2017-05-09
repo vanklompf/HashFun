@@ -8,7 +8,7 @@
 class DataSet
 {
 public:
-    DataSet(size_t size, size_t minPacketSize, size_t maxPacketSize);
+    DataSet(size_t size, uint32_t minPacketSize, uint32_t maxPacketSize);
     ~DataSet();
     void PrepareData();
 
@@ -17,8 +17,8 @@ public:
     std::vector<uint32_t> m_packetLenghts;
 
 private:
-    const size_t m_minPacketSize;
-    const size_t m_maxPacketSize;
+    const uint32_t m_minPacketSize;
+    const uint32_t m_maxPacketSize;
 };
 
 #endif /* DATASET_H_ */
