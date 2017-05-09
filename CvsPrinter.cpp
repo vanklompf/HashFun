@@ -30,6 +30,7 @@ void CvsPrinter::PrintResults(const HashFunctionsSet& results) const
         m_dst << average << CVS_SEPARATOR;
         m_dst << CalculateStdDev(hashFunction, average) << CVS_SEPARATOR;
     }
+    m_dst << std::endl;
 }
 
 uint32_t CvsPrinter::CalculateAverage(const HashFunctionEntry& results)

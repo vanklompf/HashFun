@@ -1,0 +1,1 @@
+travisId,compiler,message,dataSize,numOfRuns,minPacket,maxPacket,XXH32_avg,XXH32_std,SuperFastHash_avg,SuperFastHash_std,MurmurHash1_avg,MurmurHash1_std,MurmurHash1Aligned_avg,MurmurHash1Aligned_std,MurmurHash2_avg,MurmurHash2_std,MurmurHash3_x86_32_avg,MurmurHash3_x86_32_std,CityHash32_avg,CityHash32_std
