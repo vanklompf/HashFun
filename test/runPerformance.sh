@@ -1,4 +1,5 @@
 #!/bin/bash
+IDENTITY=terion@vanklompf.westeurope.cloudapp.azure.com
 TRAVIS_BUILD_NUMBER=${1-0}
 COMPILER=${1-gcc6}
 TRAVIS_COMMIT_MESSAGE=${1-manual}
