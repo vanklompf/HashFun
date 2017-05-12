@@ -27,6 +27,7 @@ addons:
 
 script:
   - openssl aes-256-cbc -K $encrypted_05eadb0cb5ba_key -iv $encrypted_05eadb0cb5ba_iv -in test/azure_ssh.enc -out test/azure_ssh -d
+  - chmod 600 test/azure_ssh
   - export CXX=$COMPILER
   - cmake . && make -j$(nproc) && make test && cd test && ./runPerformance.sh
 
