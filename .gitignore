@@ -82,6 +82,8 @@ $RECYCLE.BIN/
 # Files
 /CmakeCache.txt
 /cmake_install.cmake
+/CTestTestfile.cmake
+azure_ssh
 
 #Folders
 /x64

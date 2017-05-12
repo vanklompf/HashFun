@@ -1,5 +1,6 @@
 #include "CvsPrinter.h"
 
+#include <algorithm>
 #include <cmath>
 #include <cstdint>
 #include <iostream>
@@ -26,22 +27,28 @@ void CvsPrinter::PrintResults(const HashFunctionsSet& results) const
 {
     for (const auto& hashFunction : results)
     {
-        auto average = CalculateAverage(hashFunction);
+        auto trimmedResults = hashFunction.results;
+        if (trimmedResults.size() >= 5)
+        {
+          std::sort(trimmedResults.begin(), trimmedResults.end());
+          trimmedResults.erase(trimmedResults.begin());
+          trimmedResults.pop_back();
+        }
+        auto average = CalculateAverage(trimmedResults);
         m_dst << average << CVS_SEPARATOR;
-        m_dst << CalculateStdDev(hashFunction, average) << CVS_SEPARATOR;
+        m_dst << CalculateStdDev(trimmedResults, average) << CVS_SEPARATOR;
     }
     m_dst << std::endl;
 }
 
-uint32_t CvsPrinter::CalculateAverage(const HashFunctionEntry& results)
+uint32_t CvsPrinter::CalculateAverage(const std::vector<uint32_t>& results)
 {
-    return std::accumulate(results.results.begin(), results.results.end(), 0) / (uint32_t)results.results.size();
+    return std::accumulate(results.begin(), results.end(), 0) / (uint32_t)results.size();
 }
 
-uint32_t CvsPrinter::CalculateStdDev(const HashFunctionEntry& results, uint32_t average)
+uint32_t CvsPrinter::CalculateStdDev(const std::vector<uint32_t>& results, uint32_t average)
 {
-    auto& r = results.results;
-    auto sq_sum = std::inner_product(r.begin(), r.end(), r.begin(), 0);
-    return static_cast<uint32_t>(sqrt(sq_sum / r.size() - average * average));
+    auto sq_sum = std::inner_product(results.begin(), results.end(), results.begin(), 0);
+    return static_cast<uint32_t>(sqrt(sq_sum / results.size() - average * average));
 }
 

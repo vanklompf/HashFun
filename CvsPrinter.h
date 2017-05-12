@@ -3,6 +3,7 @@
 
 #include "IPrinter.h"
 #include "HashFunctionEntry.h"
+#include <vector>
 
 struct CommandlineOptions;
 
@@ -13,8 +14,8 @@ public:
     void PrintConfig(const CommandlineOptions& config) const;
     void PrintResults(const HashFunctionsSet& results) const;
 private:
-    static uint32_t CalculateAverage(const HashFunctionEntry& results);
-    static uint32_t CalculateStdDev(const HashFunctionEntry& results, uint32_t average);
+    static uint32_t CalculateAverage(const std::vector<uint32_t>& results);
+    static uint32_t CalculateStdDev(const std::vector<uint32_t>& results, uint32_t average);
     std::ostream& m_dst;
 };
 

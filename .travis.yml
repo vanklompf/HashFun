@@ -2,6 +2,8 @@ language: cpp
 dist: trusty
 sudo: false
 
+secure: "dT47TjL4q8cqlA6p4dMH1U4bGPR7Dm1FFc7D0jbg+7KM2Gh0aTL2lMt1cBlJFXfbMZ+ymJHfpDrf2Qv0jH3/AYCw8odtPFFGYvD9oDjzBKC4KGrNcNjVozkdWvK49ioO0jw2wIh8Ffj4esCmlVer+fCIEi9SLrQIgjMOHZo1rkj0ZevUlmKg4Weba4DoKI/avRm4duvyDEAI+LPbYtUVK5Cq1DYxK9uiNTmcuD9mvtCZ234Yxmc6GPdfDSPlyS7UNm2TbLvu9F8J8BL3i6D8F1VVXkrLj3LsgEemw/CSP6UXkFx8S8oreOR9Ue3JgHxX8JzQ5/lhgmDrNRxfEvRpEKcFjXkHQzZ6MUHbWOuoh3N0bFG0CQ9Jqng28FLbqHRpyXelPlsvLess2fVynxFYc7B79Q5Bk0jpz4jdX8HkvG+5bOBt6dZ886r/tmnvfTeQPmqVktaA6MU59cAMMt1a/0DbkWHK2eQzT4twqT0Vy29IDCmR/w71ZXbdJsjAM06fwEVHDv9aT5VnDOWmXdU7UW03ihftywMJGqOchtwOS7lsB23+KKZH1YK1ia/sQRW02TQN0uUORjwWPi2mFYDSSz9nfqGWlXF7w+w3mpRIWRHn+S1AeG1OZmdfKw1Rv8KCxwSVLyUqoQ3B5fqVt2g/0Obx9hpfGArVzGX0qhKpYgI="
+
 env:
   - COMPILER=clang++-3.5
   - COMPILER=clang++-4.0
@@ -25,8 +27,9 @@ addons:
     - libboost-program-options-dev
 
 script:
+  - openssl aes-256-cbc -K $encrypted_0a6446eb3ae3_key -iv $encrypted_0a6446eb3ae3_key -in test/azure_ssh.enc -out test/azure_ssh -d
   - export CXX=$COMPILER
-  - cmake . && make && make test && ./hashfun -c
+  - cmake . && make && make test && cd test && ./runPerformance.sh
 
 notifications:
   email: false
