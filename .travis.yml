@@ -27,6 +27,7 @@ addons:
     - libboost-program-options-dev
 
 script:
+  - openssl aes-256-cbc -K $encrypted_05eadb0cb5ba_key -iv $encrypted_05eadb0cb5ba_iv -in test/azure_ssh.enc -out test/azure_ssh -d
   - export CXX=$COMPILER
   - cmake . && make && make test && cd test && ./runPerformance.sh
 
