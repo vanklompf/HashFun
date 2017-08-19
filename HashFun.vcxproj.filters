@@ -13,6 +13,9 @@
     <Filter Include="build">
       <UniqueIdentifier>{941a20c1-8374-4e27-a1cf-6a012bd859a4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="test">
+      <UniqueIdentifier>{5c2cb924-424a-40d5-8bf4-3c5e9a57ca44}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="hash\CityHash.cpp">
@@ -76,9 +79,18 @@
       <Filter>build</Filter>
     </None>
     <None Include="README.md" />
-    <None Include="packages.config" />
     <None Include="appveyor.yml">
       <Filter>build</Filter>
     </None>
+    <None Include="test\azure_ssh.enc">
+      <Filter>test</Filter>
+    </None>
+    <None Include="test\performance_results.template">
+      <Filter>test</Filter>
+    </None>
+    <None Include="test\runPerformance.sh">
+      <Filter>test</Filter>
+    </None>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>

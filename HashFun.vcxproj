@@ -192,6 +192,9 @@
     <None Include="appveyor.yml" />
     <None Include="packages.config" />
     <None Include="README.md" />
+    <None Include="test\azure_ssh.enc" />
+    <None Include="test\performance_results.template" />
+    <None Include="test\runPerformance.sh" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="CMakeLists.txt" />
