@@ -3,10 +3,6 @@ dist: trusty
 sudo: false
 
 env:
-  - COMPILER=clang++-3.5
-  - COMPILER=clang++-4.0
-  - COMPILER=g++-6
-  - COMPILER=g++-5
   - COMPILER=g++-4.9
 
 addons:
@@ -17,16 +13,12 @@ addons:
     - boost-latest
     - llvm-toolchain-trusty-4.0
     packages:
-    - g++-6
-    - g++-5
     - g++-4.9
     - cmake
-    - clang-3.5
-    - clang-4.0
     - libboost-program-options-dev
 
 script:
-  - openssl aes-256-cbc -K $encrypted_05eadb0cb5ba_key -iv $encrypted_05eadb0cb5ba_iv -in test/azure_ssh.enc -out test/azure_ssh -d
+  - openssl aes-256-cbc -K $encrypted_0a6446eb3ae3_key -iv $encrypted_0a6446eb3ae3_iv -in test/azure_ssh.enc -out test/azure_ssh -d
   - chmod 600 test/azure_ssh
   - export CXX=$COMPILER
   - cmake . && make -j$(nproc) && make test && cd test && ./runPerformance.sh $TRAVIS_BUILD_NUMBER $TRAVIS_COMMIT_MESSAGE $COMPILER
