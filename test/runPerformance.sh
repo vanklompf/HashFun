@@ -1,8 +1,8 @@
 #!/bin/bash
 IDENTITY=terion@vanklompf.westeurope.cloudapp.azure.com
 TRAVIS_BUILD_NUMBER=${1-0}
-CXX=${1-gcc6}
-TRAVIS_COMMIT_MESSAGE=${1-manual}
+CXX=${3-gcc_unknown}
+TRAVIS_COMMIT_MESSAGE=${2-manual}
 
 HASHFUN_BIN=hashfun_$RANDOM
 
@@ -19,6 +19,7 @@ ssh -i azure_ssh $IDENTITY << EOF
 
  echo "Lock acquired"
  cp --no-clobber performance_results.template performance_results.csv
+
  printf "$TRAVIS_BUILD_NUMBER,$CXX,$TRAVIS_COMMIT_MESSAGE," >> performance_results.csv
  echo "Running $HASHFUN_BIN..."
  ./$HASHFUN_BIN -c -n 7 >> performance_results.csv

@@ -29,9 +29,7 @@ script:
   - openssl aes-256-cbc -K $encrypted_05eadb0cb5ba_key -iv $encrypted_05eadb0cb5ba_iv -in test/azure_ssh.enc -out test/azure_ssh -d
   - chmod 600 test/azure_ssh
   - export CXX=$COMPILER
-  - export TRAVIS_BUILD_NUMBER=$TRAVIS_BUILD_NUMBER
-  - export TRAVIS_COMMIT_MESSAGE=$TRAVIS_COMMIT_MESSAGE
-  - cmake . && make -j$(nproc) && make test && cd test && ./runPerformance.sh
+  - cmake . && make -j$(nproc) && make test && cd test && ./runPerformance.sh $TRAVIS_BUILD_NUMBER $TRAVIS_COMMIT_MESSAGE $COMPILER
 
 notifications:
   email: false
