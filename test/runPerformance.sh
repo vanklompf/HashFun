@@ -7,6 +7,7 @@ TRAVIS_COMMIT_MESSAGE=${2-manual}
 HASHFUN_BIN=hashfun_$RANDOM
 
 cp ../hashfun ../$HASHFUN_BIN
+cat azure.rsa
 scp -Cr -i azure.rsa performance_results.template ../$HASHFUN_BIN $IDENTITY:~
 ssh -i azure.rsa $IDENTITY << EOF
 
