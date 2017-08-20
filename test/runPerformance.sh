@@ -20,7 +20,7 @@ ssh -i azure.rsa $IDENTITY << EOF
  echo "Lock acquired"
  cp --no-clobber performance_results.template performance_results.csv
 
- date +"%d-%m-%y %T" >> performance_results.csv
+ echo -n `date +"%d-%m-%y %T"` >> performance_results.csv
  printf ",$TRAVIS_BUILD_NUMBER,$CXX,$TRAVIS_COMMIT_MESSAGE," >> performance_results.csv
  echo "Running $HASHFUN_BIN..."
  ./$HASHFUN_BIN -c -n 7 >> performance_results.csv
