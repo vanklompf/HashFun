@@ -7,8 +7,8 @@ TRAVIS_COMMIT_MESSAGE=${2-manual}
 HASHFUN_BIN=hashfun_$RANDOM
 
 cp ../hashfun ../$HASHFUN_BIN
-scp -Cr -i azure_ssh performance_results.template ../$HASHFUN_BIN $IDENTITY:~
-ssh -i azure_ssh $IDENTITY << EOF
+scp -Cr -i azure.rsa performance_results.template ../$HASHFUN_BIN $IDENTITY:~
+ssh -i azure.rsa $IDENTITY << EOF
 
  #make sure performance tests won't run in paralell
  echo "Acquiring lock..."
