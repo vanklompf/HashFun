@@ -83,7 +83,9 @@ $RECYCLE.BIN/
 /CmakeCache.txt
 /cmake_install.cmake
 /CTestTestfile.cmake
-azure_ssh
+/test/azure.rsa
+performance_results.csv
+
 
 #Folders
 /x64

@@ -82,9 +82,6 @@
     <None Include="appveyor.yml">
       <Filter>build</Filter>
     </None>
-    <None Include="test\azure_ssh.enc">
-      <Filter>test</Filter>
-    </None>
     <None Include="test\performance_results.template">
       <Filter>test</Filter>
     </None>
@@ -92,5 +89,8 @@
       <Filter>test</Filter>
     </None>
     <None Include="packages.config" />
+    <None Include="test\azure.rsa.enc">
+      <Filter>test</Filter>
+    </None>
   </ItemGroup>
 </Project>
