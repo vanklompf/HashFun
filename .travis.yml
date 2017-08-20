@@ -3,10 +3,10 @@ dist: trusty
 sudo: false
 
 env:
-  - COMPILER=clang++-3.5		
-  - COMPILER=clang++-4.0		
-  - COMPILER=g++-7		
-  - COMPILER=g++-6		
+  - COMPILER=clang++-3.5        
+  - COMPILER=clang++-4.0        
+  - COMPILER=g++-7        
+  - COMPILER=g++-6        
   - COMPILER=g++-4.9
 
 addons:
@@ -17,11 +17,11 @@ addons:
     - boost-latest
     - llvm-toolchain-trusty-4.0
     packages:
-	- g++-7
-	- g++-6
+    - g++-7
+    - g++-6
     - g++-4.9
-	- clang-3.5
-	- clang-4.0
+    - clang-3.5
+    - clang-4.0
     - cmake
     - libboost-program-options-dev
 
