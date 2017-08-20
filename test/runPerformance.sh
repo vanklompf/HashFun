@@ -7,9 +7,6 @@ TRAVIS_COMMIT_MESSAGE=${2-manual}
 HASHFUN_BIN=hashfun_$RANDOM
 
 cp ../hashfun ../$HASHFUN_BIN
-echo "Writing key..."
-ls -la azure.rsa
-cat azure.rsa
 scp -Cr -i azure.rsa performance_results.template ../$HASHFUN_BIN $IDENTITY:~
 ssh -i azure.rsa $IDENTITY << EOF
 
@@ -23,7 +20,8 @@ ssh -i azure.rsa $IDENTITY << EOF
  echo "Lock acquired"
  cp --no-clobber performance_results.template performance_results.csv
 
- printf "$TRAVIS_BUILD_NUMBER,$CXX,$TRAVIS_COMMIT_MESSAGE," >> performance_results.csv
+ date +"%d-%m-%y %T" >> performance_results.csv
+ printf ",$TRAVIS_BUILD_NUMBER,$CXX,$TRAVIS_COMMIT_MESSAGE," >> performance_results.csv
  echo "Running $HASHFUN_BIN..."
  ./$HASHFUN_BIN -c -n 7 >> performance_results.csv
  rm $HASHFUN_BIN
