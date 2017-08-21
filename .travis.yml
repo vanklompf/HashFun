@@ -3,15 +3,15 @@ dist: trusty
 sudo: false
 
 env:
-  - COMPILER=clang++-3.9        
-  - COMPILER=clang++-4.0        
-  - COMPILER=g++-7        
-  - COMPILER=g++-6        
-  - COMPILER=g++-4.9
-
-env:
-  - MARCH=amdfam10
-  - MARCH=x86-64
+  - COMPILER=clang++-4.0 MARCH=amdfam10
+  - COMPILER=g++-7 MARCH=amdfam10       
+  - COMPILER=g++-6 MARCH=amdfam10
+  - COMPILER=g++-4.9 MARCH=amdfam10
+  - COMPILER=clang++-3.9 MARCH=x86-64
+  - COMPILER=clang++-4.0 MARCH=x86-64
+  - COMPILER=g++-7 MARCH=x86-64      
+  - COMPILER=g++-6 MARCH=x86-64  
+  - COMPILER=g++-4.9 MARCH=x86-64
 
 addons:
   ssh_known_hosts: vanklompf.westeurope.cloudapp.azure.com
@@ -33,7 +33,7 @@ script:
   - openssl aes-256-cbc -K $encrypted_063301a0ac23_key -iv $encrypted_063301a0ac23_iv -in test/azure.rsa.enc -out test/azure.rsa -d
   - chmod 600 test/azure.rsa
   - export CXX=$COMPILER
-  - cmake -Dmarch:STRING=$MARCH . && VERBOSE=1 make -j$(nproc) && make test && cd test && ./runPerformance.sh $TRAVIS_BUILD_NUMBER "$TRAVIS_COMMIT_MESSAGE" $COMPILER
+  - cmake -Dmarch:STRING=$MARCH . && VERBOSE=1 make -j$(nproc) && make test && cd test && ./runPerformance.sh $TRAVIS_BUILD_NUMBER "$TRAVIS_COMMIT_MESSAGE" "$COMPILER -march=$MARCH"
 
 notifications:
   email: false
