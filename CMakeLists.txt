@@ -7,6 +7,14 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Werror")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pedantic -pedantic-errors")
 
+if (march)
+  MESSAGE( STATUS "Building for architecture: " ${march} )
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -march=${march}")
+else ()
+  MESSAGE( STATUS "Building for default architecture")
+endif ()
+
+
 if (CMAKE_COMPILER_IS_GNUCXX)
   set(CODE_CXX_FLAGS "${CODE_CXX_FLAGS} -flto")
 endif()
@@ -16,6 +24,7 @@ set(CODE_CXX_FLAGS "${CODE_CXX_FLAGS} -O3")
 if (NOT (MSVS OR MSYS OR MINGW))
   set(Boost_USE_STATIC_LIBS   ON)
 endif()
+  
 find_package(Boost COMPONENTS program_options )
 if( NOT Boost_FOUND)
   message( FATAL_ERROR "Boost not found" )
