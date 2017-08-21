@@ -15,7 +15,7 @@ ssh -i azure.rsa $IDENTITY << EOF
  set -e
  (
  # Wait for lock on /var/lock/.runPerformance.exclusivelock (fd 200) for 20 minutes
- flock -x -w 1200 200
+ flock -x -w 1800 200
 
  echo "Lock acquired"
  cp --no-clobber performance_results.template performance_results.csv
